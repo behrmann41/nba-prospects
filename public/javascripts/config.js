@@ -7,14 +7,14 @@ app.config(function($locationProvider, $routeProvider){
     })
     .when('/players', {
       templateUrl: '/partials/playerdb.html',
-      controller: "HomeController"
+      controller: "PlayerController"
     })
     .when('/compare-players', {
       templateUrl: '/partials/playerCompare.html',
-      controller: "HomeController"
+      controller: "PlayerController"
     })
     .when('/player-ratings', {
       templateUrl: '/partials/playerCompare.html',
-      controller: "HomeController"
+      controller: "PlayerController"
     })
 })
