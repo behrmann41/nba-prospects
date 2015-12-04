@@ -1,8 +1,20 @@
 body {
-  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.page-header {
+  border-bottom:none;
+}
+
+.navbar-nav > li{
+  padding-left:50px;
+  padding-right:50px;
+}
+
+.navbar-nav > li:first-child {
+  margin-left: 10em;
 }
