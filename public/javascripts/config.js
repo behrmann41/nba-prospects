@@ -14,7 +14,7 @@ app.config(function($locationProvider, $routeProvider){
       controller: "PlayerController"
     })
     .when('/player-ratings', {
-      templateUrl: '/partials/playerCompare.html',
+      templateUrl: '/partials/playerRankings.html',
       controller: "PlayerController"
     })
 })

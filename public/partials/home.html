@@ -1,19 +1,25 @@
 <div class="container home">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <h3>Welcome to Basketball Radar</h3>
-      <section>
-        <button class="btn btn-lg btn-success">
-          <i class="fa fa-database fa-2x pull-right"></i> Player Database</button>
-      </section>
-      <section>
-      <button class="btn btn-lg btn-success">
-        <i class="fa fa-bar-chart fa-2x pull-right"></i> Player Ratings</button>
-      </section>
-      <section>
-      <button class="btn btn-lg btn-success">
-        <i class="fa fa-pie-chart fa-2x pull-right"></i> Start Comparing Players</button>
-      </section>
+    <div class="col-md-2 col-md-offset-1">
+      <button class="btn btn-lg btn-success fa fa-database fa-2x pull-right" ng-click="dbDetails()">Player Database</button>
+      <button class="btn btn-lg btn-success fa fa-bar-chart fa-2x pull-right" ng-click="prDetails()">Player Ratings</button>
+      <button class="btn btn-lg btn-success fa fa-pie-chart fa-2x pull-right" ng-click="pcDetails()">Comparing Players</button>
+    </div>
+    <div class="col-md-7">
+      <div ng-show='dataDetails'>
+        <h3 class='text-center'>Welcome to Basketball Radar</h3>
+        <p>See a list of all players within the database.  Select individual players to see a breakdown of their combine metrics.  Players listed from 1992 and forward.  See players broken down by draft year</p>
+      </div>
+      <div ng-show="ratingDetails">
+        <p>
+          players rated on z-score in relation to draft class
+        </p>
+      </div>
+      <div ng-show="compareDetails">
+        <p>
+          Use d3 generated radar chart to either view one specific player, or compare any two players.
+        </p>
+      </div>
     </div>
   </div>
 </div>

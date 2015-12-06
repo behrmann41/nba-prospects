@@ -18,3 +18,7 @@ a {
 .navbar-nav > li:first-child {
   margin-left: 10em;
 }
+
+.btn-success {
+  margin: 1em 0 1em;
+}
