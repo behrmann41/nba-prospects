@@ -22,3 +22,7 @@ a {
 .btn-success {
   margin: 1em 0 1em;
 }
+
+.verticalLine {
+  border-right: thick solid #000;
+}
