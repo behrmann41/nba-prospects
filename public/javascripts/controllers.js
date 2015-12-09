@@ -24,4 +24,7 @@ app.controller("PlayerController", ["$scope", function($scope){
   $scope.test3 = "Player Rater";
   $scope.test2 = "playerDB";
   $scope.test4 = "Player Compare";
+  $scope.addplayer = function (){
+    // query db for player
+  }
 }])
