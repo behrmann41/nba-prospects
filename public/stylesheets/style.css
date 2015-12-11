@@ -26,3 +26,9 @@ a {
 .verticalLine {
   border-right: thick solid #000;
 }
+
+#chart {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
