@@ -22,12 +22,16 @@ app.controller("HomeController", ["$scope", function($scope){
   $scope.clearHeader = function (){
     $scope.header = false;
   }
+  $scope.addHeader = function (){
+    $scope.header = true;
+  }
 }])
 
 app.controller("PlayerController", ["$scope", "d3Chart", function($scope, d3Chart){
   $scope.test3 = "Player Rater";
   $scope.test2 = "playerDB";
   $scope.test4 = "Player Compare";
+  $scope.players = [{name: 'player'}];
   $scope.addplayer = function (){
     // query db for player
   }

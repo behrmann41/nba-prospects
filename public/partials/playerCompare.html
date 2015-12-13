@@ -3,11 +3,24 @@
     <div class="col-md-3 col-md-offset-1 verticalLine">
       <h1>{{test4}}</h1>
       <p>please add a player</p>
-      <button ng-click='addPlayer()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
+      <form class="form-inline form-horizontal" name='playerSelect'>
+        <div data-ng-repeat='choice in players'>
+          <div class="inputField">
+            <div class="form-group">
+              <label for="player" class="col-md-2 control-label">Name:</label>
+              <div class="col-sm-10">
+                <input type="text" ng-model='choice.player' class="form-control" name="" id="player" placeholder="Search for player" required>
+              </div>
+            </div>
+          </div>
+          <button ng-show="$last" type="button" class="btn btn-default remove" ng-click='removePlayer()'><i class="fa fa-minus"></i></button>
+          <button ng-show="$last" ng-click='addPlayer()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
+        </div>
+      </form>
     </div>
     <div class="col-md-7">
       <div id="body">
-      <div id="chart"></div>
+        <div id="chart"></div>
       </div>
     </div>
   </div>

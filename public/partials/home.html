@@ -1,11 +1,11 @@
 <div class="container home">
   <div class="row">
     <div class="col-md-2 col-md-offset-1">
-      <button class="btn btn-lg btn-success fa fa-database fa-2x pull-right" ng-click="dbDetails()">Player Database</button>
-      <button class="btn btn-lg btn-success fa fa-bar-chart fa-2x pull-right" ng-click="prDetails()">Player Ratings</button>
-      <button class="btn btn-lg btn-success fa fa-pie-chart fa-2x pull-right" ng-click="pcDetails()">Comparing Players</button>
+      <button class="btn btn-success" ng-click="dbDetails()">Player Database<span class="fa fa-database"></span></button>
+      <button class="btn btn-success" ng-click="prDetails()">Player Ratings<span class="fa fa-bar-chart"></span></button>
+      <button class="btn btn-success" ng-click="pcDetails()">Comparing Players<span class="fa fa-pie-chart"></span></button>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-7 col-md-offset-1">
       <div ng-show='dataDetails'>
         <h3 class='text-center'>Welcome to Basketball Radar</h3>
         <p>See a list of all players within the database.  Select individual players to see a breakdown of their combine metrics.  Players listed from 1992 and forward.  See players broken down by draft year</p>
