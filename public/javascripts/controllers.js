@@ -18,6 +18,10 @@ app.controller("HomeController", ["$scope", function($scope){
     $scope.ratingDetails = false;
     $scope.compareDetails = true;
   }
+  $scope.header = true;
+  $scope.clearHeader = function (){
+    $scope.header = false;
+  }
 }])
 
 app.controller("PlayerController", ["$scope", "d3Chart", function($scope, d3Chart){

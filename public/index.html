@@ -12,8 +12,8 @@
     <link rel='shortcut icon', href='/images/ball.png'>
     <base href="/"/>
   </head>
-  <body>
-    <div class="page-header text-center">
+  <body ng-controller='HomeController'>
+    <div ng-show='header' class="page-header text-center">
       <h1 >Basketball Radar</h1>
       <h5>Basketball Prospect Player Ratings and Metric Vizualization</h5>
     </div>
@@ -35,7 +35,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/players">Player Database</a></li>
             <li><a href="/player-ratings">Player Rater</a></li>
-            <li><a href="/compare-players">Compare Players</a></li>
+            <li><a ng-click='clearHeader()' href="/compare-players">Compare Players</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

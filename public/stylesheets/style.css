@@ -24,7 +24,8 @@ a {
 }
 
 .verticalLine {
-  border-right: thick solid #000;
+  height: 400px;
+  border-right: thin solid #000;
 }
 
 #chart {
