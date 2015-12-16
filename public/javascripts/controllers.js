@@ -32,8 +32,14 @@ app.controller("PlayerController", ["$scope", function($scope){
   $scope.test2 = "playerDB";
   $scope.test4 = "Player Compare";
   $scope.players = [{name: 'player'}];
-  $scope.addplayer = function (){
-    // query db for player
+  $scope.addPlayer = function (){
+    var newItemNo = $scope.players.length+1;
+    $scope.players.push({name: "player" + newItemNo});
+  }
+  $scope.removePlayer = function (){
+    var lastItem = $scope.players.length-1;
+    if (!$scope.players[lastItem-1]) return;
+    else $scope.players.splice(lastItem);
   }
   //d3 functionality
   var w = 500,
