@@ -10,16 +10,16 @@
     <div class="col-md-7 col-md-offset-1">
       <div ng-show='dataDetails'>
         <h3 class='text-center'>Welcome to Basketball Radar</h3>
-        <p>See a list of all players within the database.  Select individual players to see a breakdown of their combine metrics.  Players listed from 1992 and forward.  See players broken down by draft year</p>
+        <p>See a list of all players within the database.  Select individual players to see a breakdown of their combine metrics.  Players listed from 1992 and forward.  See players broken down by draft year.  By selecting an individual player, it will link to a unique radar chart for that player's specific combine data.</p>
       </div>
       <div ng-show="ratingDetails">
         <p>
-          players rated on z-score in relation to draft class
+          players rated on z-score in relation to draft class.  z-score is calculated based on a player's combine metrics in relation to their draft class.
         </p>
       </div>
       <div ng-show="compareDetails">
         <p>
-          Use d3 generated radar chart to either view one specific player, or compare any two players.
+          Use d3 generated radar chart to either view one specific player, or compare as many players as you like (limit 10).
         </p>
       </div>
     </div>
