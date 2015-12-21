@@ -22,6 +22,7 @@ a {
 .home-btn {
   margin: 3em 0 3em;
   text-align: center;
+  transition: ease-in-out .5s;
 }
 
 .home-btn:hover {
