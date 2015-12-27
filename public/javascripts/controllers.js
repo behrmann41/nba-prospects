@@ -1,5 +1,7 @@
 app.controller("HomeController", ["$scope", function($scope){
-  $scope.test1 = "home";
+
+
+
   $scope.dataDetails = true;
   $scope.ratingDetails = false;
   $scope.compareDetails = false;
@@ -27,10 +29,18 @@ app.controller("HomeController", ["$scope", function($scope){
   }
 }])
 
-app.controller("PlayerController", ["$scope", function($scope){
-  $scope.test3 = "Player Rater";
-  $scope.test2 = "playerDB";
-  $scope.test4 = "Player Compare";
+app.controller("PlayerController", ["$scope", "playerYears", function($scope, playerYears){
+
+  $scope.years;
+  function init(){
+    playerYears.getYears().then(function (years) {
+      $scope.years = years.data
+    });
+  }
+  init();
+  console.log($scope.years);
+
+
   $scope.players = [{name: 'player'}];
   $scope.addPlayer = function (){
     var newItemNo = $scope.players.length+1;
