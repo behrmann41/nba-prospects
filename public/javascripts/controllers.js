@@ -29,17 +29,16 @@ app.controller("HomeController", ["$scope", function($scope){
   }
 }])
 
-app.controller("PlayerController", ["$scope", "playerYears", function($scope, playerYears){
+app.controller("PlayerController", ["$scope", "players", function($scope, players){
 
-  $scope.years;
-  function init(){
-    playerYears.getYears().then(function (years) {
-      $scope.years = years.data
-    });
-  }
-  init();
-  console.log($scope.years);
+  players.getYears().then(function (years) {
+    $scope.years = years.data
+    console.log($scope.years);
+  });
 
+  players.getAllPlayers().then(function (allPlayers) {
+    $scope.allPlayers = allPlayers.data
+  })
 
   $scope.players = [{name: 'player'}];
   $scope.addPlayer = function (){
