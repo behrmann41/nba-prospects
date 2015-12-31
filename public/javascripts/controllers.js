@@ -27,21 +27,7 @@ app.controller("HomeController", ["$scope", function($scope){
   }
 }])
 
-app.controller("PlayerController", ["$scope", "players", function($scope, players){
-
-  players.getYears().then(function (years) {
-    $scope.years = years.data
-  });
-
-  players.getAllPlayers().then(function (allPlayers) {
-    console.log(allPlayers);
-    $scope.allPlayers = allPlayers.data
-  })
-
-  players.getColumns().then(function (allColumns) {
-    $scope.columns = allColumns.data[1].fields
-  })
-
+app.controller("ComparisonController", ["$scope", "compare", function ($scope, compare) {
   $scope.players = [{name: 'player'}];
   $scope.addPlayer = function (){
     var newItemNo = $scope.players.length+1;
@@ -52,6 +38,7 @@ app.controller("PlayerController", ["$scope", "players", function($scope, player
     if (!$scope.players[lastItem-1]) return;
     else $scope.players.splice(lastItem);
   }
+
   //d3 functionality
   var w = 500,
   	h = 500;
@@ -143,7 +130,7 @@ app.controller("PlayerController", ["$scope", "players", function($scope, player
   	.attr("y", 10)
   	.attr("font-size", "12px")
   	.attr("fill", "#404040")
-  	.text("What % of owners use a specific service in a week");
+  	.text("Players");
 
   //Initiate Legend
   var legend = svg.append("g")
@@ -175,4 +162,19 @@ app.controller("PlayerController", ["$scope", "players", function($scope, player
   	  .text(function(d) { return d; })
   	  ;
 
+}])
+
+app.controller("PlayerController", ["$scope", "players", function($scope, players){
+
+  players.getYears().then(function (years) {
+    $scope.years = years.data
+  });
+
+  players.getAllPlayers().then(function (allPlayers) {
+    $scope.allPlayers = allPlayers.data
+  })
+
+  players.getColumns().then(function (allColumns) {
+    $scope.columns = allColumns.data[1].fields
+  })
 }])

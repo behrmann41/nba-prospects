@@ -11,6 +11,10 @@ span {
   display: inline;
 }
 
+table {
+  font-size: 8px;
+}
+
 .page-header {
   border-bottom:none;
 }

@@ -12,16 +12,9 @@ app.factory('players', function players($http){
     return $http.get('http://localhost:4000/players/columns')
   }
   return obj
-    //once data being loaded
-    // {
-    //   getD: getD,
-    //   setD: setD
-    // }
-    //
-    // function getD() {
-    //   return d;
-    // }
-    // function setD(data) {
-    //   d.push() http.post().then(d.push(response))
-    // }
+})
+
+app.factory('compare', function compare($http) {
+  var obj = {}
+  return obj
 })
