@@ -1,7 +1,5 @@
 app.controller("HomeController", ["$scope", function($scope){
 
-
-
   $scope.dataDetails = true;
   $scope.ratingDetails = false;
   $scope.compareDetails = false;
@@ -33,11 +31,15 @@ app.controller("PlayerController", ["$scope", "players", function($scope, player
 
   players.getYears().then(function (years) {
     $scope.years = years.data
-    console.log($scope.years);
   });
 
   players.getAllPlayers().then(function (allPlayers) {
+    console.log(allPlayers);
     $scope.allPlayers = allPlayers.data
+  })
+
+  players.getColumns().then(function (allColumns) {
+    $scope.columns = allColumns.data[1].fields
   })
 
   $scope.players = [{name: 'player'}];

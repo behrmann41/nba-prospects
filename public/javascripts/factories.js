@@ -7,6 +7,10 @@ app.factory('players', function players($http){
   obj.getAllPlayers = function () {
     return $http.get('http://localhost:4000/players')
   }
+
+  obj.getColumns = function () {
+    return $http.get('http://localhost:4000/players/columns')
+  }
   return obj
     //once data being loaded
     // {

@@ -6,6 +6,11 @@ a {
   color: #00B7FF;
 }
 
+span {
+  vertical-align: top;
+  display: inline;
+}
+
 .page-header {
   border-bottom:none;
 }
