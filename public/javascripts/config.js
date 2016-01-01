@@ -17,4 +17,8 @@ app.config(function($locationProvider, $routeProvider){
       templateUrl: '/partials/playerRankings.html',
       controller: "PlayerController"
     })
+    .when('/players/:id', {
+      templateUrl: '/partials/player.html',
+      controller: 'ComparisonController'
+    })
 })

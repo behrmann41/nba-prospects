@@ -27,7 +27,8 @@ app.controller("HomeController", ["$scope", function($scope){
   }
 }])
 
-app.controller("ComparisonController", ["$scope", "compare", function ($scope, compare) {
+app.controller("ComparisonController", ["$scope", "compare", "$routeParams", function ($scope, compare, $routeParams) {
+
   $scope.players = [{name: 'player'}];
   $scope.addPlayer = function (){
     var newItemNo = $scope.players.length+1;
