@@ -17,7 +17,7 @@ app.factory('players', function players($http){
 app.factory('compare', function compare($http) {
   var obj = {}
   obj.getOnePlayer = function (id) {
-    return $http.get('http://localhost:4000/players/player')
+    return $http.get('http://localhost:4000/players/player/' + id)
   }
   return obj
 })
