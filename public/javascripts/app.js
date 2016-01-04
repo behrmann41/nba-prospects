@@ -1,1 +1,1 @@
-var app = angular.module('nbaProspects', ['ngRoute']);
+var app = angular.module('nbaProspects', ['ngRoute','ngTable']);
