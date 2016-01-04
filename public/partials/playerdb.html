@@ -1,17 +1,8 @@
-<div class="container">
+<div class="container" ng-controller="PlayerController as db">
   <div class="row">
-    <form class="form-horizontal">
-      <div class="form-group">
-        <label for="yearselect" class="col-md-1 col-md-offset-2 control-label">Select Year:</label>
-        <div class="col-md-2">
-          <select ng-model='searchYear' placeholder='Select Year' id='yearselect' class="form-control">
-            <option ng-repeat='year in years'>{{year}}</option>
-          </select>
-        </div>
-      </div>
     <div class="col-md-12">
-      <table ng-table="vm.tableParams" class="table" show-filter="true">
-        <tr ng-repeat="player in data">
+      <table ng-table="db.tableParams" class="table table-striped table-bordered table-hover table-condensed" show-filter="true">
+        <tr ng-repeat="player in $data">
           <td title="'Name'" filter="{ name: 'text'}" sortable="'name'"><a ng-href='/players/{{player.id}}'>{{player.name}}</a></td>
           <td title="'Draft'" filter="{ name: 'text'}" sortable="'name'">{{player.draftYear}}</td>
           <td title="'Height w/o Shoes'" filter="{ name: 'text'}" sortable="'name'">{{player.heightWithOutShoes}}</td>
@@ -20,8 +11,8 @@
           <td title="'Wingspan'" filter="{ name: 'text'}" sortable="'name'">{{player.wingspan}}</td>
           <td title="'Reach'" filter="{ name: 'text'}" sortable="'name'">{{player.reach}}</td>
           <td title="'Body Fat'" filter="{ name: 'text'}" sortable="'name'">{{player.bodyFat}}</td>
-          <td title="'Hand Length'" filter="{ name: 'text'}" sortable="'name'">{{player.handLength}}</td>
-          <td title="'Hand Width'" filter="{ name: 'text'}" sortable="'name'">{{player.handWidth}}</td>
+          <!-- <td title="'Hand Length'" filter="{ name: 'text'}" sortable="'name'">{{player.handLength}}</td>
+          <td title="'Hand Width'" filter="{ name: 'text'}" sortable="'name'">{{player.handWidth}}</td> -->
           <td title="'No Step Vert'" filter="{ name: 'text'}" sortable="'name'">{{player.noStepVert}}</td>
           <td title="'No Step Reach'" filter="{ name: 'text'}" sortable="'name'">{{player.noStepVertReach}}</td>
           <td title="'Max Vert'" filter="{ name: 'text'}" sortable="'name'">{{player.maxVert}}</td>
@@ -33,35 +24,5 @@
           <td title="'Draft Postition'" filter="{ name: 'text'}" sortable="'name'">{{player.draftPos}}</td>
         </tr>
       </table>
-      <!-- <table class='table table-striped table-bordered'>
-        <thead>
-          <tr>
-            <th ng-repeat='col in columns' ng-if="col.name !== 'id' && col.name !== 'createdAt' && col.name !== 'updatedAt'">{{col.name}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-repeat='player in allPlayers | filter:searchYear'>
-            <td><a ng-href='/players/{{player.id}}'>{{player.name}}</a></td>
-            <td>{{player.draftYear}}</td>
-            <td>{{player.heightWithOutShoes}}</td>
-            <td>{{player.heightWithShoes}}</td>
-            <td>{{player.weight}}</td>
-            <td>{{player.wingspan}}</td>
-            <td>{{player.reach}}</td>
-            <td>{{player.bodyFat}}</td>
-            <td>{{player.handLength}}</td>
-            <td>{{player.handWidth}}</td>
-            <td>{{player.noStepVert}}</td>
-            <td>{{player.noStepVertReach}}</td>
-            <td>{{player.maxVert}}</td>
-            <td>{{player.maxVertReach}}</td>
-            <td>{{player.bench}}</td>
-            <td>{{player.agility}}</td>
-            <td>{{player.sprint}}</td>
-            <td>{{player.rank}}</td>
-            <td>{{player.draftPos}}</td>
-          </tr>
-        </tbody>
-      </table> -->
     </div>
   </div>

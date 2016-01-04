@@ -174,25 +174,19 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
 
 }])
 
-app.controller("PlayerController", ["$scope", "players", "NgTableParams", function($scope, players, NgTableParams){
+app.controller("PlayerController", ["$scope", "players", "NgTableParams","$resource", function($scope, players, NgTableParams, $resource){
 
-
-
-  players.getYears().then(function (years) {
-    $scope.years = years.data
-  });
-
-  players.getColumns().then(function (allColumns) {
-    return $scope.columns = allColumns.data[1].fields
-  }).then(function (columns) {
-    return players.getAllPlayers().then(function (allPlayers) {
-      return $scope.allPlayers = allPlayers.data
-    })
+  var self = this;
+  players.getAllPlayers().then(function (players) {
+    return players
   }).then(function (players) {
-    console.log(players);
-    var self = this;
-    $scope.data = players;
-    self.tableParams = new NgTableParams({}, { dataset: $scope.data});
+    self.tableParams = new NgTableParams({page: 1, count: 10}, {
+      total: 0,
+      getData: function($defer, params) {
+       // ajax request to api
+        params.total(players.data.data.length)
+        $defer.resolve(players.data.data.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+      }
+    });
   })
-
 }])
