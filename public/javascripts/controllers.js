@@ -41,6 +41,7 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
     //Legend titles
     var LegendOptions = [player.data.name];
 
+    
     var stats = [];
     for (attr in player.data){
       if (player.data[attr] !== 0 && player.data[attr] !== '0' && attr !== 'id' && attr !== 'name' && attr !== 'updatedAt' && attr !== 'createdAt' && attr !== 'draftPos' && attr !== 'draftYear'){
@@ -101,8 +102,8 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
     var mycfg = {
       w: w,
       h: h,
-      maxValue: 0.6,
-      levels: 6,
+      maxValue: 1.0,
+      levels: 5,
       ExtraWidthX: 300
     }
 
@@ -176,15 +177,13 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
 
 app.controller("PlayerController", ["$scope", "players", "ngTableParams","$resource", "$filter", function($scope, players, ngTableParams, $resource, $filter){
 
-  var self = this;
   players.getAllPlayers().then(function (players) {
     return players
   }).then(function (players) {
     $scope.tableParams = new ngTableParams({page: 1, count: 10}, {
       total: 0,
-      counts: [10,25,50,100,500],
+      counts: [10,25,50,100,500,4530],
       getData: function($defer, params) {
-       // ajax request to api
         params.total(players.data.data.length)
         $defer.resolve($filter('orderBy')(players.data.data.slice((params.page() - 1) * params.count(), params.page() * params.count()), params.orderBy()));
       }

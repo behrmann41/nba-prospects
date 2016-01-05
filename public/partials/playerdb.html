@@ -1,18 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <table ng-table="tableParams" class="table table-striped table-bordered table-hover table-condensed" show-filter="true">
+      <table ng-table="tableParams" class="table table-striped table-bordered table-hover table-condensed">
         <tr ng-repeat="player in $data">
           <td title="'Name'" filter="{ name: 'text'}" sortable="'name'"><a ng-href='/players/{{player.id}}'>{{player.name}}</a></td>
           <td title="'Draft'" filter="{ draftYear: 'text'}" sortable="'draftYear'">{{player.draftYear}}</td>
           <td title="'Height w/o Shoes'" filter="{ heightWithOutShoes: 'text'}" sortable="'heightWithOutShoes'">{{player.heightWithOutShoes}}</td>
+          <td title="'Height w/o Shoes'" filter="{ heightWithOutShoes: 'text'}" sortable="'heightWithOutShoes'">{{player.heightwoshoesinches}}</td>
           <td title="'Height'" filter="{ heightWithShoes: 'text'}" sortable="'heightWithShoes'">{{player.heightWithShoes}}</td>
           <td title="'Weight'" filter="{ weight: 'text'}" sortable="'weight'">{{player.weight}}</td>
           <td title="'Wingspan'" filter="{ wingspan: 'text'}" sortable="'wingspan'">{{player.wingspan}}</td>
           <td title="'Reach'" filter="{ reach: 'text'}" sortable="'reach'">{{player.reach}}</td>
           <td title="'Body Fat'" filter="{ bodyFat: 'text'}" sortable="'bodyFat'">{{player.bodyFat}}</td>
-          <!-- <td title="'Hand Length'" filter="{ handLength: 'text'}" sortable="'handLength'">{{player.handLength}}</td>
-          <td title="'Hand Width'" filter="{ handWidth: 'text'}" sortable="'handWidth'">{{player.handWidth}}</td> -->
+          <td title="'Hand Length'" filter="{ handLength: 'text'}" sortable="'handLength'">{{player.handLength}}</td>
+          <td title="'Hand Width'" filter="{ handWidth: 'text'}" sortable="'handWidth'">{{player.handWidth}}</td>
           <td title="'No Step Vert'" filter="{ noStepVert: 'text'}" sortable="'noStepVert'">{{player.noStepVert}}</td>
           <td title="'No Step Reach'" filter="{ noStepVertReach: 'text'}" sortable="'noStepVertReach'">{{player.noStepVertReach}}</td>
           <td title="'Max Vert'" filter="{ maxVert: 'text'}" sortable="'maxVert'">{{player.maxVert}}</td>
