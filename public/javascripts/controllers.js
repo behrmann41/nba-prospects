@@ -27,7 +27,7 @@ app.controller("HomeController", ["$scope", function($scope){
   }
 }])
 
-app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$rootScope", function ($scope, compare, $routeParams, $rootScope) {
+app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$rootScope", "$http", function ($scope, compare, $routeParams, $rootScope, $http) {
 
   compare.getOnePlayer($routeParams.id).then(function (player) {
     return player
@@ -39,8 +39,15 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
     var colorscale = d3.scale.category10();
 
     //Legend titles
+    $scope.player1 = player.data;
+
     var LegendOptions = [player.data.name];
 
+    $http.get('http://api.pixplorer.co.uk/image?word=' + player.data.name + " basketball").then(function(res){
+      if(res.data.images[0]){
+        $scope.imageSearch = res.data.images[0].imageurl;
+      }
+    })
 
     var stats = [];
     for (attr in player.data){
@@ -136,11 +143,30 @@ app.controller("PlayerController", ["$scope", "players", "ngTableParams","$resou
   }).then(function (players) {
     $scope.tableParams = new ngTableParams({page: 1, count: 10}, {
       total: 0,
-      counts: [10,25,50,100,500,4530],
+      counts: [10,25,50,100,500, players.data.data.length],
       getData: function($defer, params) {
         params.total(players.data.data.length)
         $defer.resolve($filter('orderBy')(players.data.data.slice((params.page() - 1) * params.count(), params.page() * params.count()), params.orderBy()));
       }
     });
   })
+
+  $scope.applyGlobalSearch = function () {
+    var term = $scope.globalSearchTerm
+    players.getAllPlayers().then(function (players) {
+      return players.data.data.filter(function (player) {
+        return player.name.toLowerCase().includes(term.toLowerCase());
+      })
+    }).then(function (players) {
+      console.log(players);
+      $scope.tableParams = new ngTableParams({page: 1, count: 10}, {
+        total: 0,
+        counts: [10, 25, players.length],
+        getData: function($defer, params) {
+          params.total(players.length)
+          $defer.resolve($filter('orderBy')(players.slice((params.page() - 1) * params.count(), params.page() * params.count()), params.orderBy()));
+        }
+      });
+    })
+  }
 }])

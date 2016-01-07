@@ -4,11 +4,11 @@
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-          <input type="text" class="form-control" placeholder="Search for Player" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for Player'">
+          <input type="text" class="form-control" ng-model='globalSearchTerm' placeholder="Search for Player" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for Player'">
         </div>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary">Submit</button>
       </div>
     </form>
   </div>
