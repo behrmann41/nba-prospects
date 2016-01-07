@@ -43,7 +43,7 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
 
     var LegendOptions = [player.data.name];
 
-    $http.get('http://api.pixplorer.co.uk/image?word=' + player.data.name + " basketball").then(function(res){
+    $http.get('//api.pixplorer.co.uk/image?word=' + player.data.name + " basketball").then(function(res){
       if(res.data.images[0]){
         $scope.imageSearch = res.data.images[0].imageurl;
       }
