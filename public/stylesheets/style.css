@@ -47,3 +47,7 @@ span {
   top: 50px;
   left: 100px;
 }
+
+#searchBox {
+  padding-bottom: 10px;
+}

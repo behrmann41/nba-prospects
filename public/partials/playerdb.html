@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
+      <table-search></table-search>
       <table ng-table="tableParams" class="table table-striped table-bordered table-hover table-condensed">
         <tr ng-repeat="player in $data">
           <td title="'Name'" filter="{ name: 'text'}" sortable="'name'"><a ng-href='/players/{{player.id}}'>{{player.name}}</a></td>
