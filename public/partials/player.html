@@ -6,8 +6,53 @@
       <ul>
         <li></li>
       </ul>
-      <p>please add a player</p>
-      <form class="form-inline form-horizontal" name='playerSelect'>
+      <button type="button" ng-click="" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+        Add a Player
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Search for player</h4>
+              <p>
+                After search - click players name to add to graph
+              </p>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-9 col-md-offset-3">
+                  <form id='searchBox' class="form-inline pull-right" novalidate ng-submit='modalGlobalSearch()' role="search">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                        <input type="text" class="form-control" ng-model='globalSearchTerm' placeholder="Search for Player" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for Player'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <ul>
+                    <li ng-repeat='player in modalPlayers'><a ng-click='addToGraph(player)'>{{player.name}}</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <!-- <button type="button" ng-click='addToGraph()' class="btn btn-primary">Add Player</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <form class="form-inline form-horizontal" name='playerSelect'>
         <div data-ng-repeat='choice in players'>
           <div class="inputField">
             <div class="form-group">
@@ -20,7 +65,7 @@
           <button ng-show="$last" type="button" class="btn btn-default remove" ng-click='removePlayer()'><i class="fa fa-minus"></i></button>
           <button ng-show="$last" ng-click='addPlayer()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
         </div>
-      </form>
+      </form> -->
     </div>
     <div class="col-md-7">
       <div id="body">
