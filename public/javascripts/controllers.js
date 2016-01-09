@@ -29,6 +29,25 @@ app.controller("HomeController", ["$scope", function($scope){
 
 app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$rootScope", "$http", "players", function ($scope, compare, $routeParams, $rootScope, $http, players) {
 
+  var attributes = {
+    heightwoshoesinchespercentage: 'Height Without Shoes',
+    heightinchespercentage: 'Height',
+    weightpercentage: 'Weight',
+    wingspaninchespercentage: 'Wingspan',
+    reachinchespercentage: 'Reach',
+    bodyFatpercentage: 'Body Fat',
+    handLengthpercentage: 'Hand Length',
+    handWidthpercentage: 'Hand Width',
+    noStepVertpercentage: 'No Step Vertical',
+    nostepvertreachinchespercentage: 'No Step Vertical Reach',
+    maxVertpercentage: 'Max Vertical',
+    maxvertreachinchespercentage: 'Max Vertical Reach',
+    benchpercentage: 'Benchpress',
+    agilitypercentage: 'Agility',
+    sprintpercentage: 'Sprint',
+    rankpercentage: 'Rank'
+  }
+
   $scope.secondPicture = false;
   compare.getOnePlayer($routeParams.id).then(function (player) {
     return player
@@ -54,7 +73,11 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
     for (attr in player.data){
       // player.data[attr] !== 0 && player.data[attr] !== '0' && attr !== 'id' && attr !== 'name' && attr !== 'updatedAt' && attr !== 'createdAt' && attr !== 'draftPos' && attr !== 'draftYear'
       if (attr.includes('percentage') && player.data[attr] != 0){
-        stats.push({axis: attr, value: player.data[attr]})
+        for (var name in attributes) {
+          if (attr === name) {
+            stats.push({axis: attributes[name], value: player.data[attr]})
+          }
+        }
       }
     }
     //Data
@@ -171,7 +194,11 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
         for (attr in players[0].data){
           // player.data[attr] !== 0 && player.data[attr] !== '0' && attr !== 'id' && attr !== 'name' && attr !== 'updatedAt' && attr !== 'createdAt' && attr !== 'draftPos' && attr !== 'draftYear'
           if (attr.includes('percentage') && players[0].data[attr] != 0){
-            stats1.push({axis: attr, value: players[0].data[attr]})
+            for (var name in attributes) {
+              if (attr === name) {
+                stats1.push({axis: attributes[name], value: players[0].data[attr]})
+              }
+            }
           }
         }
 
@@ -179,7 +206,11 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
         for (attr in players[1].data){
           // player.data[attr] !== 0 && player.data[attr] !== '0' && attr !== 'id' && attr !== 'name' && attr !== 'updatedAt' && attr !== 'createdAt' && attr !== 'draftPos' && attr !== 'draftYear'
           if (attr.includes('percentage') && players[1].data[attr] != 0){
-            stats2.push({axis: attr, value: players[1].data[attr]})
+            for (var name in attributes) {
+              if (attr === name) {
+                stats2.push({axis: attributes[name], value: players[1].data[attr]})
+              }
+            }
           }
         }
         //Data
