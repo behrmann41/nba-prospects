@@ -2,11 +2,12 @@
   <div class="row">
     <div class="col-md-3 col-md-offset-1 verticalLine">
       <h2>{{player1.name}}</h2>
-      <img class='playerpic' ng-src="{{imageSearch}}" alt=""/>
-      <ul>
-        <li></li>
-      </ul>
-      <button type="button" ng-click="" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      <img class='playerpic' ng-src="{{imageSearch1}}" alt=""/>
+      <div class="" ng-show='secondPicture'>
+        <h2>{{player2.name}}</h2>
+        <img class='playerpic' ng-src="{{imageSearch2}}"/>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg addplayer" data-toggle="modal" data-target="#myModal">
         Add a Player
       </button>
 
@@ -39,9 +40,9 @@
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <ul>
-                    <li ng-repeat='player in modalPlayers'><a ng-click='addToGraph(player)'>{{player.name}}</a></li>
-                  </ul>
+                  <div class="list-group">
+                    <a ng-repeat='player in modalPlayers ' href="#" class="list-group-item" ng-click='addToGraph(player)' data-dismiss="modal">{{player.name}}</a>
+                  </div>
                 </div>
               </div>
             </div>

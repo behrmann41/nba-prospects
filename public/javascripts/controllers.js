@@ -29,6 +29,7 @@ app.controller("HomeController", ["$scope", function($scope){
 
 app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$rootScope", "$http", "players", function ($scope, compare, $routeParams, $rootScope, $http, players) {
 
+  $scope.secondPicture = false;
   compare.getOnePlayer($routeParams.id).then(function (player) {
     return player
   }).then(function (player) {
@@ -43,9 +44,9 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
 
     var LegendOptions = [player.data.name];
 
-    $http.get('//api.pixplorer.co.uk/image?word=' + player.data.name + " basketball").then(function(res){
-      if(res.data.images[0]){
-        $scope.imageSearch = res.data.images[0].imageurl;
+    compare.getPhoto(player.data.name).then(function(photos){
+      if(photos.data.images[0]){
+        $scope.imageSearch1 = photos.data.images[0].imageurl;
       }
     })
 
@@ -155,10 +156,15 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
 
         var LegendOptions = [$scope.player1.name, $scope.player2.name];
 
-        $http.get('//api.pixplorer.co.uk/image?word=' + players[0].data.name + " basketball").then(function(res){
-          if(res.data.images[0]){
-            $scope.imageSearch = res.data.images[0].imageurl;
+        compare.getPhoto(players[0].data.name).then(function(photos){
+          if(photos.data.images[0]){
+            $scope.imageSearch1 = photos.data.images[0].imageurl;
           }
+        }).then(function () {
+          compare.getPhoto(players[1].data.name).then(function (photos) {
+            $scope.imageSearch2 = photos.data.images[0].imageurl;
+            $scope.secondPicture = true;
+          })
         })
 
         var stats1 = [];

@@ -47,6 +47,10 @@ span {
   width: 200px;
 }
 
+.addplayer {
+  margin-top: 10px;
+}
+
 #chart {
   position: absolute;
   top: 50px;
