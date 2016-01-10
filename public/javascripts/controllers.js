@@ -48,6 +48,12 @@ app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$r
     rankpercentage: 'Rank'
   }
 
+  $scope.dynamicPopover = {
+    content: 'Hello, World!',
+    templateUrl: 'myPopoverTemplate.html',
+    title: 'Title'
+  };
+
   $scope.secondPicture = false;
   compare.getOnePlayer($routeParams.id).then(function (player) {
     return player

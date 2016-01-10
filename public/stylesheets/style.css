@@ -51,6 +51,12 @@ span {
   margin-top: 10px;
 }
 
+.playerinfo {
+  background:none;
+  border:none;
+  box-shadow:none;
+}
+
 #chart {
   position: absolute;
   top: 50px;

@@ -1,23 +1,23 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 col-md-offset-1 verticalLine">
-      <h2>{{player1.name}}</h2>
+      <h2>{{player1.name}}<span><button type="button" class="btn playerinfo"><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
       <img class='playerpic' ng-src="{{imageSearch1}}" alt=""/>
       <div class="" ng-show='secondPicture'>
-        <h2>{{player2.name}}</h2>
+        <h2>{{player2.name}}<span><button type="button" class='btn playerinfo'><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
         <img class='playerpic' ng-src="{{imageSearch2}}"/>
       </div>
-      <button type="button" class="btn btn-primary btn-lg addplayer" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="btn btn-primary btn-lg addplayer" data-toggle="modal" data-target="#searchModal">
         Add a Player
       </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <!-- Search Modal -->
+      <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Search for player</h4>
+              <h4 class="modal-title" id="searchModalLabel">Search for player</h4>
               <p>
                 After search - click players name to add to graph
               </p>
@@ -41,7 +41,7 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="list-group">
-                    <a ng-repeat='player in modalPlayers ' href="#" class="list-group-item" ng-click='addToGraph(player)' data-dismiss="modal">{{player.name}}</a>
+                    <a ng-repeat='player in modalPlayers' href="#" class="list-group-item" ng-click='addToGraph(player)' data-dismiss="modal">{{player.name}}</a>
                   </div>
                 </div>
               </div>
@@ -49,6 +49,24 @@
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <!-- <button type="button" ng-click='addToGraph()' class="btn btn-primary">Add Player</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Player 1Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
