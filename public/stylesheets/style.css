@@ -15,14 +15,18 @@ span {
   border-bottom:none;
 }
 
-.navbar-nav > li{
-  padding-left:50px;
-  padding-right:50px;
+.nav {
+  width: 100%;
 }
 
-.navbar-nav > li:first-child {
-  margin-left: 10em;
+.navbar-nav > li{
+  width: 25%;
+  text-align: center;
 }
+
+/*.navbar-nav > li:first-child {
+  margin-left: 10em;
+}*/
 
 .home-btn {
   margin: 3em 0 3em;
@@ -38,7 +42,7 @@ span {
 }
 
 .verticalLine {
-  height: 500px;
+  height: 620px;
   border-right: thin solid #000;
 }
 

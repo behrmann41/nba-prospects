@@ -11,14 +11,14 @@ app.config(function($locationProvider, $routeProvider){
     })
     .when('/compare-players', {
       templateUrl: '/partials/playerCompare.html',
-      controller: "ComparisonController"
+      controller: "CompareController"
     })
-    .when('/player-ratings', {
-      templateUrl: '/partials/playerRankings.html',
-      controller: "PlayerController"
+    .when('/about', {
+      templateUrl: '/partials/about.html',
+      controller: "HomeController"
     })
     .when('/players/:id', {
       templateUrl: '/partials/player.html',
-      controller: 'ComparisonController'
+      controller: 'ShowController'
     })
 })
