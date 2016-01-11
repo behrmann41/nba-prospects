@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 col-md-offset-1 verticalLine">
-      <h2>{{player1.name}}<span><button class="btn playerinfo" uib-popover="I appeared on mouse enter!" popover-trigger="mouseenter" popover-placement="right"><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
+      <h2>{{player1.name}}<span><button class="btn playerinfo" uib-popover-template="templateUrl1"  popover-title="Stats" popover-placement="bottom-right"><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
       <img class='playerpic' ng-src="{{imageSearch1}}" alt=""/>
       <div class="" ng-show='secondPicture'>
-        <h2>{{player2.name}}<span><button type="button" class='btn playerinfo'><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
+        <h2>{{player2.name}}<span><button type="button" class='btn playerinfo' uib-popover-template="templateUrl2" popover-title="Stats" popover-placement="bottom-right"><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
         <img class='playerpic' ng-src="{{imageSearch2}}"/>
       </div>
       <button type="button" class="btn btn-primary btn-lg addplayer" data-toggle="modal" data-target="#searchModal">

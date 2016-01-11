@@ -29,6 +29,8 @@ app.controller("HomeController", ["$scope", function($scope){
 
 app.controller("ComparisonController", ["$scope", "compare", "$routeParams", "$rootScope", "$http", "players", function ($scope, compare, $routeParams, $rootScope, $http, players) {
 
+  $scope.templateUrl1 = "/partials/popover1.html"
+  $scope.templateUrl2 = "/partials/popover2.html"
   var attributes = {
     heightwoshoesinchespercentage: 'Height Without Shoes',
     heightinchespercentage: 'Height',
