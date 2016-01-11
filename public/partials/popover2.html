@@ -1,6 +1,6 @@
 <div>
   <table class="table table-condensed">
-    <tr ng-repeat='(key, value) in player2'>
+    <tr ng-repeat='(key, value) in player2 | playerstatsFilter'>
       <td>
         {{key}}
       </td>
