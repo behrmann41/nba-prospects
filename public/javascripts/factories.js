@@ -25,7 +25,7 @@ app.factory('compare', function compare($http) {
   }
 
   obj.getPhoto = function (player) {
-    return $http.get('//api.pixplorer.co.uk/image?word=' + player + "&size=m")
+    return $http.get('//api.pixplorer.co.uk/image?word=' + player + "&size=s")
   }
   return obj
 })

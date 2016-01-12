@@ -313,7 +313,6 @@ app.controller("PlayerController", ["$scope", "players", "ngTableParams","$resou
         return player.name.toLowerCase().includes(term.toLowerCase());
       })
     }).then(function (players) {
-      console.log(players);
       $scope.tableParams = new ngTableParams({page: 1, count: 10}, {
         total: 0,
         counts: [10, 25, players.length],
