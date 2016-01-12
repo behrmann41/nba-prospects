@@ -20,8 +20,12 @@ app.factory('compare', function compare($http) {
     return $http.get('https://basketballradarapi.herokuapp.com/players/player/' + id || 'http://localhost:4000/players/player/' + id )
   }
 
+  obj.getGetty = function (player) {
+    return $http.get('/gettyimage?playername=' + player)
+  }
+
   obj.getPhoto = function (player) {
-    return $http.get('//api.pixplorer.co.uk/image?word=' + player + " basketball")
+    return $http.get('//api.pixplorer.co.uk/image?word=' + player + "&size=m")
   }
   return obj
 })

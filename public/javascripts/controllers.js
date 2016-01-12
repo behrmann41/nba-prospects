@@ -65,6 +65,11 @@ app.controller("ShowController", ["$scope", "compare", "$routeParams", "$rootSco
 
     var LegendOptions = [player.data.name];
 
+    // compare.getGetty(player.data.name).then(function (response) {
+    //   console.log(response);
+    //   $scope.imageSearch1 = response.data
+    // });
+
     compare.getPhoto(player.data.name).then(function(photos){
       if(photos.data.images[0]){
         $scope.imageSearch1 = photos.data.images[0].imageurl;
@@ -358,6 +363,7 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
     $scope.player1 = player.data;
 
     var LegendOptions = [player.data.name];
+
 
     compare.getPhoto(player.data.name).then(function(photos){
       if(photos.data.images[0]){
