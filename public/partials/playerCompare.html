@@ -1,21 +1,57 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 col-md-offset-1 verticalLine">
-      <p>please add a player</p>
-      <form class="form-inline form-horizontal" name='playerSelect'>
-        <div data-ng-repeat='choice in players'>
-          <div class="inputField">
-            <div class="form-group">
-              <label for="player" class="col-md-2 control-label">Name:</label>
-              <div class="col-sm-10">
-                <input type="text" ng-model='choice.player' class="form-control" name="" id="player" placeholder="Search for player" required>
+      <div class="" ng-show='firstPicture'>
+        <h2>{{player1.name}}<span><button class='btn playerinfo' uib-popover-template="templateUrl1" popover-title="Stats" popover-placement="bottom-right"><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
+        <img class='playerpic' ng-src="{{imageSearch1}}"/>
+      </div>
+      <div class="" ng-show='secondPicture'>
+        <h2>{{player2.name}}<span><button class='btn playerinfo' uib-popover-template="templateUrl2" popover-title="Stats" popover-placement="bottom-right"><span class="fa fa-info-circle fa-lg"></span></button></span></h2>
+        <img class='playerpic' ng-src="{{imageSearch2}}"/>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg addplayer" data-toggle="modal" data-target="#searchModal"><span class="fa fa-user-plus my-icon"></span> Add a Player</button>
+
+      <!-- Search Modal -->
+      <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="searchModalLabel">Search for player</h4>
+              <p>
+                After search - click players name to add to graph
+              </p>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-md-9 col-md-offset-3">
+                  <form id='searchBox' class="form-inline pull-right" novalidate ng-submit='modalGlobalSearch()' role="search">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+                        <input type="text" class="form-control" ng-model='globalSearchTerm' placeholder="Search for Player" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for Player'">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="list-group">
+                    <a ng-repeat='player in modalPlayers' href="#" class="list-group-item" ng-click='addToGraph(player)' data-dismiss="modal">{{player.name}}</a>
+                  </div>
+                </div>
               </div>
             </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
           </div>
-          <button ng-show="$last" type="button" class="btn btn-default remove" ng-click='removePlayer()'><i class="fa fa-minus"></i></button>
-          <button ng-show="$last" ng-click='addPlayer()' type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
         </div>
-      </form>
+      </div>
     </div>
     <div class="col-md-7">
       <div id="body">
