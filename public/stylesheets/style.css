@@ -97,7 +97,7 @@ span {
 .aboutbottom {
   background-color: #333333;
   position: absolute;
-  height: 100%;
+  padding-bottom: 30px;
   width: 100%;
   color: white;
   text-align: center;
