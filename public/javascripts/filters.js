@@ -26,7 +26,17 @@ app.filter('playerstatsFilter', function () {
       if (!key.includes('percentage') && !key.includes('inches') && key !== 'createdAt' && key !== 'updatedAt' && key !== 'name' && key !== 'id' && value != 0) {
         for (var name in attributes){
           if (name === key){
-            result[attributes[name]] = value;
+            if (key === "weight"){
+              result[attributes[name]] = value + " lbs";
+            } else if (key === "bodyFat"){
+              result[attributes[name]] = value + "%";
+            } else if (key === "handWidth" || key === "handLength" || key === "noStepVert" || key === "maxVert" ){
+              result[attributes[name]] = value + " in";
+            } else if (key === 'agility' || key === 'sprint'){
+              result[attributes[name]] = value + " sec";
+            } else {
+              result[attributes[name]] = value;
+            }
           }
         }
       }

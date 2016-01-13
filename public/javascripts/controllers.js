@@ -71,6 +71,14 @@ app.controller("ShowController", ["$scope", "compare", "$routeParams", "$rootSco
     // });
 
     compare.getPhoto(player.data.name).then(function(photos){
+      // while (photos.data.images[0].imageurl.includes('cache')) {
+      //   if (!photos.data.images[0].imageurl.includes('cache')){
+      //     break;
+      //   }
+      //   compare.getPhoto(player.data.name).then(function (newphotos) {
+      //     $scope.imageSearch1 = newphotos.data.images[0].imageurl
+      //   })
+      // }
       if(photos.data.images[0]){
         $scope.imageSearch1 = photos.data.images[0].imageurl;
       }

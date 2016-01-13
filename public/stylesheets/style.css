@@ -1,5 +1,8 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5em;
+  letter-spacing: .025em;
 }
 
 a {
@@ -22,6 +25,17 @@ span {
 .navbar-nav > li{
   width: 25%;
   text-align: center;
+}
+
+.navbar-nav > li > a{
+  border-bottom: solid transparent;
+}
+
+.navbar-nav > li > a:hover {
+  text-decoration: none;
+  border-radius:0px;
+  border-bottom-style: solid;
+  border-bottom-color: #00B7FF;
 }
 
 .home-btn {
@@ -53,6 +67,7 @@ span {
 .playerpic {
   height: 200px;
   width: 200px;
+  object-fit: cover;
 }
 
 .addplayer {
@@ -68,6 +83,41 @@ span {
   box-shadow:none;
 }
 
+.ng-table-header {
+  text-align: left;
+  /*transform: rotate(-70deg);
+  background: white;*/
+  /*position: fixed;*/
+}
+
+.about {
+  padding-bottom: 1.5em;
+}
+
+.bottom {
+  background-color: #333333;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.bottomtext {
+  padding-top: 4em;
+}
+
+.fa-3x {
+  margin: 0px 10px;
+}
+
+.animatedhover {
+  animation-play-state: paused;
+}
+.animatedhover:hover {
+  animation-play-state: running;
+}
+
 #chart {
   position: absolute;
   top: 50px;
@@ -76,4 +126,14 @@ span {
 
 #searchBox {
   padding-bottom: 10px;
+}
+
+#loading-bar .bar {
+  position: absolute;
+  top: 0px;
+  height: 5px;
+}
+
+#loading-bar-spinner {
+  display: none;
 }
