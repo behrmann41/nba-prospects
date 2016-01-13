@@ -137,3 +137,11 @@ span {
 #loading-bar-spinner {
   display: none;
 }
+
+#courtimg {
+  height: 225px;
+  width: 350px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
