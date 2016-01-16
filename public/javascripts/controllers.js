@@ -410,10 +410,22 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
           var LegendOptions = [$scope.player1.name];
 
           compare.getPhoto($scope.player1.name).then(function(photos){
-            if(photos.data.images[0]){
-              $scope.imageSearch1 = photos.data.images[0].imageurl;
-              $scope.firstPicture = true;
+            var photo1 = photos.data.images[0]
+            var img = new Image();
+            var url = photo1.imageurl.replace('%2520', '%20');
+            img.src = url
+
+            img.onerror = function(e){
+              url = '../images/defaultavatar.jpg'
+              $scope.imageSearch1 = url;
+              $scope.$apply()
             }
+
+            $scope.imageSearch1 = url;
+            // if(photos.data.images[0]){
+            //   $scope.imageSearch1 = photos.data.images[0].imageurl;
+              $scope.firstPicture = true;
+            // }
           })
 
           var stats1 = [];
