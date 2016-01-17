@@ -215,7 +215,7 @@ app.controller("ShowController", ["$scope", "compare", "$routeParams", "$rootSco
             img2.src = url2
 
             img2.onerror = function(e){
-              url = '../images/defaultavatar.jpg'
+              url2 = '../images/defaultavatar.jpg'
               $scope.imageSearch1 = url2;
               $scope.$apply()
             }
@@ -525,12 +525,30 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
             var LegendOptions = [$scope.player1.name, $scope.player2.name];
 
             compare.getPhoto($scope.player1.name).then(function(photos){
-              if(photos.data.images[0]){
-                $scope.imageSearch1 = photos.data.images[0].imageurl;
+              var photo1 = photos.data.images[0]
+              var img = new Image();
+              var url = photo1.imageurl.replace('%2520', '%20');
+              img.src = url
+
+              img.onerror = function(e){
+                url = '../images/defaultavatar.jpg'
+                $scope.imageSearch1 = url;
+                $scope.$apply()
               }
+              $scope.imageSearch1 = url;
             }).then(function () {
               compare.getPhoto($scope.player2.name).then(function (photos) {
-                $scope.imageSearch2 = photos.data.images[0].imageurl;
+                var photo2 = photos.data.images[0]
+                var img2 = new Image();
+                var url2 = photo2.imageurl.replace('%2520', '%20');
+                img2.src = url2
+
+                img2.onerror = function(e){
+                  url2 = '../images/defaultavatar.jpg'
+                  $scope.imageSearch1 = url2;
+                  $scope.$apply()
+                }
+                $scope.imageSearch2 = url2
                 $scope.secondPicture = true;
               })
             })
