@@ -8,9 +8,9 @@ app.factory('players', function players($http){
     return $http.get('https://basketballradarapi.herokuapp.com/players' || 'http://localhost:4000/players')
   }
 
-  obj.getColumns = function () {
-    return $http.get('https://basketballradarapi.herokuapp.com/players/columns' || 'http://localhost:4000/players/columns' )
-  }
+  // obj.getColumns = function () {
+  //   return $http.get('https://basketballradarapi.herokuapp.com/players/columns' || 'http://localhost:4000/players/columns' )
+  // }
   return obj
 })
 
