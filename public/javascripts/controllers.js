@@ -393,7 +393,6 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
     $rootScope.playersArr = [];
     $scope.addToGraph = function (player) {
       if ($rootScope.playersArr.length < 1){
-        console.log('length < 1');
         compare.getOnePlayer(player.id).then(function (player) {
           return player;
         }).then(function (playerOne) {
@@ -508,7 +507,6 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
               ;
           })
         } else {
-          console.log('length = 1');
           compare.getOnePlayer(player.id).then(function (player) {
             return player;
           }).then(function (playerTwo) {
@@ -518,8 +516,8 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
 
             var colorscale = d3.scale.category10();
 
-            $scope.player1 = playersArr[0].data;
-            $scope.player2 = playersArr[1].data;
+            $scope.player1 = $rootScope.playersArr[0].data;
+            $scope.player2 = $rootScope.playersArr[1].data;
             //Legend titles
 
             var LegendOptions = [$scope.player1.name, $scope.player2.name];
