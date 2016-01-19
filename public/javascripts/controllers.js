@@ -216,7 +216,7 @@ app.controller("ShowController", ["$scope", "compare", "$routeParams", "$rootSco
 
             img2.onerror = function(e){
               url2 = '../images/defaultavatar.jpg'
-              $scope.imageSearch1 = url2;
+              $scope.imageSearch2 = url2;
               $scope.$apply()
             }
             $scope.imageSearch2 = url2
@@ -543,7 +543,7 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
 
                 img2.onerror = function(e){
                   url2 = '../images/defaultavatar.jpg'
-                  $scope.imageSearch1 = url2;
+                  $scope.imageSearch2 = url2;
                   $scope.$apply()
                 }
                 $scope.imageSearch2 = url2
