@@ -70,20 +70,20 @@ app.controller("ShowController", ["$scope", "compare", "$routeParams", "$rootSco
     //   $scope.imageSearch1 = response.data
     // });
 
-    compare.getPhoto(player.data.name).then(function(photos){
-      var photo1 = photos.data.images[0]
-      var img = new Image();
-      var url = photo1.imageurl.replace('%2520', '%20');
-      img.src = url
-
-      img.onerror = function(e){
-        url = '../images/defaultavatar.jpg'
-        $scope.imageSearch1 = url;
-        $scope.$apply()
-      }
-
-      $scope.imageSearch1 = url;
-    })
+    // compare.getPhoto(player.data.name).then(function(photos){
+    //   var photo1 = photos.data.images[0]
+    //   var img = new Image();
+    //   var url = photo1.imageurl.replace('%2520', '%20');
+    //   img.src = url
+    //
+    //   img.onerror = function(e){
+    //     url = '../images/defaultavatar.jpg'
+    //     $scope.imageSearch1 = url;
+    //     $scope.$apply()
+    //   }
+    //
+    //   $scope.imageSearch1 = url;
+    // })
 
     var stats = [];
     for (attr in player.data){
@@ -182,6 +182,7 @@ app.controller("ShowController", ["$scope", "compare", "$routeParams", "$rootSco
       var players = [player]
       compare.getOnePlayer(newPlayer.id).then(function (secondPlayer) {
         players.push(secondPlayer)
+        $scope.secondPicture = true;
       }).then(function () {
         //d3 functionality
         var w = 500,
@@ -195,34 +196,34 @@ app.controller("ShowController", ["$scope", "compare", "$routeParams", "$rootSco
 
         var LegendOptions = [$scope.player1.name, $scope.player2.name];
 
-        compare.getPhoto(players[0].data.name).then(function(photos){
-          var photo1 = photos.data.images[0]
-          var img = new Image();
-          var url = photo1.imageurl.replace('%2520', '%20');
-          img.src = url
-
-          img.onerror = function(e){
-            url = '../images/defaultavatar.jpg'
-            $scope.imageSearch1 = url;
-            $scope.$apply()
-          }
-          $scope.imageSearch1 = url;
-        }).then(function () {
-          compare.getPhoto(players[1].data.name).then(function (photos) {
-            var photo2 = photos.data.images[0]
-            var img2 = new Image();
-            var url2 = photo2.imageurl.replace('%2520', '%20');
-            img2.src = url2
-
-            img2.onerror = function(e){
-              url2 = '../images/defaultavatar.jpg'
-              $scope.imageSearch2 = url2;
-              $scope.$apply()
-            }
-            $scope.imageSearch2 = url2
-            $scope.secondPicture = true;
-          })
-        })
+        // compare.getPhoto(players[0].data.name).then(function(photos){
+        //   var photo1 = photos.data.images[0]
+        //   var img = new Image();
+        //   var url = photo1.imageurl.replace('%2520', '%20');
+        //   img.src = url
+        //
+        //   img.onerror = function(e){
+        //     url = '../images/defaultavatar.jpg'
+        //     $scope.imageSearch1 = url;
+        //     $scope.$apply()
+        //   }
+        //   $scope.imageSearch1 = url;
+        // }).then(function () {
+        //   compare.getPhoto(players[1].data.name).then(function (photos) {
+        //     var photo2 = photos.data.images[0]
+        //     var img2 = new Image();
+        //     var url2 = photo2.imageurl.replace('%2520', '%20');
+        //     img2.src = url2
+        //
+        //     img2.onerror = function(e){
+        //       url2 = '../images/defaultavatar.jpg'
+        //       $scope.imageSearch2 = url2;
+        //       $scope.$apply()
+        //     }
+        //     $scope.imageSearch2 = url2
+        //     $scope.secondPicture = true;
+        //   })
+        // })
 
         var stats1 = [];
         for (attr in players[0].data){
@@ -511,6 +512,7 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
             return player;
           }).then(function (playerTwo) {
             $rootScope.playersArr.push(playerTwo)
+            $scope.secondPicture = true;
             var w = 500,
         	    h = 500;
 
@@ -522,34 +524,34 @@ app.controller("CompareController", ["$scope", "compare", "$routeParams", "$root
 
             var LegendOptions = [$scope.player1.name, $scope.player2.name];
 
-            compare.getPhoto($scope.player1.name).then(function(photos){
-              var photo1 = photos.data.images[0]
-              var img = new Image();
-              var url = photo1.imageurl.replace('%2520', '%20');
-              img.src = url
-
-              img.onerror = function(e){
-                url = '../images/defaultavatar.jpg'
-                $scope.imageSearch1 = url;
-                $scope.$apply()
-              }
-              $scope.imageSearch1 = url;
-            }).then(function () {
-              compare.getPhoto($scope.player2.name).then(function (photos) {
-                var photo2 = photos.data.images[0]
-                var img2 = new Image();
-                var url2 = photo2.imageurl.replace('%2520', '%20');
-                img2.src = url2
-
-                img2.onerror = function(e){
-                  url2 = '../images/defaultavatar.jpg'
-                  $scope.imageSearch2 = url2;
-                  $scope.$apply()
-                }
-                $scope.imageSearch2 = url2
-                $scope.secondPicture = true;
-              })
-            })
+            // compare.getPhoto($scope.player1.name).then(function(photos){
+            //   var photo1 = photos.data.images[0]
+            //   var img = new Image();
+            //   var url = photo1.imageurl.replace('%2520', '%20');
+            //   img.src = url
+            //
+            //   img.onerror = function(e){
+            //     url = '../images/defaultavatar.jpg'
+            //     $scope.imageSearch1 = url;
+            //     $scope.$apply()
+            //   }
+            //   $scope.imageSearch1 = url;
+            // }).then(function () {
+            //   compare.getPhoto($scope.player2.name).then(function (photos) {
+            //     var photo2 = photos.data.images[0]
+            //     var img2 = new Image();
+            //     var url2 = photo2.imageurl.replace('%2520', '%20');
+            //     img2.src = url2
+            //
+            //     img2.onerror = function(e){
+            //       url2 = '../images/defaultavatar.jpg'
+            //       $scope.imageSearch2 = url2;
+            //       $scope.$apply()
+            //     }
+            //     $scope.imageSearch2 = url2
+            //     $scope.secondPicture = true;
+            //   })
+            // })
 
             var stats1 = [];
             for (attr in $scope.player1){
