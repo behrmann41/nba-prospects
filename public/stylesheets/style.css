@@ -145,3 +145,19 @@ span {
   display: block;
   margin: 0 auto;
 }
+
+#ballimg {
+  height: 350px;
+  width: 350px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+#playersimg {
+  height: 300px;
+  width: 500px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
